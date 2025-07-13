@@ -11,7 +11,7 @@ export default function LoadingPage() {
 
   useEffect(() => {
     // 로딩 페이지 전용 body 스타일 적용
-    document.body.style.background = "#2c2f33";
+    document.body.style.background = "#000000";
     document.body.style.color = "#ffffff";
     document.body.style.display = "flex";
     document.body.style.justifyContent = "center";
