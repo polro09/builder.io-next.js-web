@@ -1,8 +1,23 @@
 "use client";
 
+import { useEffect } from "react";
 import styles from "./main.module.css";
 
 export default function MainPage() {
+  useEffect(() => {
+    // 메인 페이지 전용 body 스타일 적용
+    document.body.style.background =
+      "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+    document.body.style.minHeight = "100vh";
+    document.body.style.color = "#333";
+
+    return () => {
+      // 컴포넌트 언마운트 시 body 스타일 초기화
+      document.body.style.background = "";
+      document.body.style.minHeight = "";
+      document.body.style.color = "";
+    };
+  }, []);
   return (
     <div className={styles.mainContainer}>
       {/* 헤더 섹션 */}
@@ -21,7 +36,7 @@ export default function MainPage() {
       <div className={styles.featuresGrid}>
         <div className={styles.featureCard}>
           <span className={styles.featureIcon}>🤖</span>
-          <h3 className={styles.featureTitle}>봇 개발 ���구</h3>
+          <h3 className={styles.featureTitle}>봇 개발 도구</h3>
           <p className={styles.featureDescription}>
             코딩 지식 없이도 디스코드 봇을 쉽게 제작할 수 있는 비주얼 에디터와
             강력한 개발 도구를 제공합니다.
@@ -50,7 +65,7 @@ export default function MainPage() {
           <span className={styles.featureIcon}>📊</span>
           <h3 className={styles.featureTitle}>분석 대시보드</h3>
           <p className={styles.featureDescription}>
-            실시간 봇 사용량과 성능 데이터를 한눈에 확인할 수 있는 대시���드를
+            실시간 봇 사용량과 성능 데이터를 한눈에 확인할 수 있는 대시보드를
             제공합니다.
           </p>
         </div>
