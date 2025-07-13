@@ -61,12 +61,12 @@ export default function LoadingPage() {
             unoptimized
           />
         </div>
-        <div className={styles.brandName}>loading</div>
+        <div className={styles.brandName}>Aimdot.dev</div>
         <div className={styles.brandSubtitle}>Discord Bot Platform</div>
-      </div>
 
-      <div className={styles.loadingBarContainer}>
-        <div className={styles.loadingBar}></div>
+        <div className={styles.loadingBarContainer}>
+          <div className={styles.loadingBar}></div>
+        </div>
       </div>
 
       <div className={styles.loadingText}>loading{".".repeat(dots)}</div>
