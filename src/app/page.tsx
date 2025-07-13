@@ -10,6 +10,15 @@ export default function LoadingPage() {
   const router = useRouter();
 
   useEffect(() => {
+    // 로딩 페이지 전용 body 스타일 적용
+    document.body.style.background = "#2c2f33";
+    document.body.style.color = "#ffffff";
+    document.body.style.display = "flex";
+    document.body.style.justifyContent = "center";
+    document.body.style.alignItems = "center";
+    document.body.style.minHeight = "100vh";
+    document.body.style.overflow = "hidden";
+
     // 로딩 텍스트 애니메이션
     const interval = setInterval(() => {
       setDots((prev) => (prev + 1) % 4);
@@ -29,6 +38,14 @@ export default function LoadingPage() {
     return () => {
       clearInterval(interval);
       clearTimeout(timeout);
+      // 컴포넌트 언마운트 시 body 스타일 초기화
+      document.body.style.background = "";
+      document.body.style.color = "";
+      document.body.style.display = "";
+      document.body.style.justifyContent = "";
+      document.body.style.alignItems = "";
+      document.body.style.minHeight = "";
+      document.body.style.overflow = "";
     };
   }, [router]);
 
