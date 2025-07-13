@@ -1,20 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #2c2f33;
-  color: #ffffff;
-  font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
 .loadingContainer {
   text-align: center;
   animation: fadeIn 0.8s ease-in;
