@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aimdot.dev - Discord Bot Platform</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .header-section {
+        text-align: center;
+        margin-bottom: 60px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .logo-display {
+        width: 120px;
+        height: 120px;
+        background: #ffffff;
+        border: 3px solid #000000;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #000000;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-title {
+        font-size: 48px;
+        font-weight: 700;
+        color: #2c2f33;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+      }
+
+      .main-subtitle {
+        font-size: 20px;
+        color: #7289da;
+        margin-bottom: 30px;
+        font-weight: 500;
+      }
+
+      .welcome-message {
+        font-size: 18px;
+        color: #4f545c;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .feature-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #2c2f33;
+        margin-bottom: 15px;
+      }
+
+      .feature-description {
+        color: #4f545c;
+        line-height: 1.6;
+        font-size: 16px;
+      }
+
+      .guidelines-section {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        margin-bottom: 40px;
+      }
+
+      .guidelines-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #2c2f33;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .guideline-card {
+        background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%);
+        border: 1px solid #e1e8ed;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 20px;
+        transition: transform 0.2s ease;
+      }
+
+      .guideline-card:hover {
+        transform: translateX(5px);
+      }
+
+      .guideline-card h3 {
+        color: #5865f2;
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .guideline-card p {
+        color: #4f545c;
+        margin-bottom: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .guideline-card ul {
+        margin: 10px 0;
+        padding-left: 25px;
+      }
+
+      .guideline-card li {
+        margin: 8px 0;
+        color: #6c757d;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .action-button {
+        background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+      }
+
+      .action-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(88, 101, 242, 0.4);
+      }
+
+      .secondary-button {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        color: #5865f2;
+        border: 2px solid #5865f2;
+        box-shadow: 0 10px 30px rgba(88, 101, 242, 0.1);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-container {
+          padding: 20px 15px;
+        }
+
+        .main-title {
+          font-size: 36px;
+        }
+
+        .main-subtitle {
+          font-size: 18px;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- 헤더 섹션 -->
+      <div class="header-section">
+        <div class="logo-display">로고</div>
+        <h1 class="main-title">Aimdot.dev</h1>
+        <p class="main-subtitle">Discord Bot Platform</p>
+        <p class="welcome-message">
+          디스코드 봇 개발을 위한 완전한 플랫폼입니다.<br />
+          강력한 도구와 직관적인 인터페이스로 누구나 쉽게 봇을 만들 수 있습니다.
+        </p>
+      </div>
+
+      <!-- 주요 기능 -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🤖</span>
+          <h3 class="feature-title">봇 개발 도구</h3>
+          <p class="feature-description">
+            코딩 지식 없이도 디스코드 봇을 쉽게 제작할 수 있는 비주얼 에디터와
+            강력한 개발 도구를 제공합니다.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3 class="feature-title">고성능 호스팅</h3>
+          <p class="feature-description">
+            24/7 안정적인 봇 호스팅 서비스로 언제나 온라인 상태를 유지할 수
+            있습니다.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🔧</span>
+          <h3 class="feature-title">커스터마이징</h3>
+          <p class="feature-description">
+            다양한 플러그인과 확장 기능으로 원하는 대로 봇을 커스터마이징할 수
+            있습니다.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h3 class="feature-title">분석 대시보드</h3>
+          <p class="feature-description">
+            실시간 봇 사용량과 성능 데이터를 한눈에 확인할 수 있는 대시보드를
+            제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 프로젝트 지침 -->
+      <div class="guidelines-section">
+        <h2 class="guidelines-title">프로젝트 아키텍처 지침</h2>
+        <div class="guideline-card">
+          <h3>🏗️ 독립적 페이지 구조</h3>
+          <p>
+            <strong
+              >로딩/메인 페이지를 제외한 모든 페이지는 독립적 형태를
+              지닙니다</strong
+            >
+          </p>
+          <ul>
+            <li>
+              각 페이지는 자체적으로 완전한 기능을 수행할 수 있어야 합니다
+            </li>
+            <li>
+              페이지 간 의존성을 최소화하여 독립적인 개발 및 유지보수가
+              가능합니다
+            </li>
+            <li>모듈화된 구조로 확장성과 재사용성을 극대화합니���</li>
+            <li>
+              각 페이지는 자체 스타일과 스크립트를 포함하여 완전히 독립적으로
+              작동합니다
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 액션 버튼 -->
+      <div class="action-buttons">
+        <a href="#" class="action-button">봇 만들기 시작</a>
+        <a href="#" class="action-button secondary-button">문서 보기</a>
+      </div>
+    </div>
+  </body>
+</html>
