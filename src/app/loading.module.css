@@ -1,6 +1,8 @@
 .loadingContainer {
   text-align: center;
   animation: fadeIn 0.8s ease-in;
+  padding-bottom: 33px;
+  margin-bottom: -3px;
 }
 
 .logoContainer {
