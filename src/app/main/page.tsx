@@ -1,9 +1,4 @@
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Main - Aimdot.dev",
-  description: "Discord Bot Platform Main Page",
-};
+"use client";
 
 export default function MainPage() {
   return (
