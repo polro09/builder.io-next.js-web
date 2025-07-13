@@ -61,7 +61,7 @@ export default function LoadingPage() {
             unoptimized
           />
         </div>
-        <div className={styles.brandName}>Aimdot.dev</div>
+        <div className={styles.brandName}>loading</div>
         <div className={styles.brandSubtitle}>Discord Bot Platform</div>
       </div>
 
